@@ -57,19 +57,27 @@ class Universidad {
 
     obtenerAlumnosAsignatura(nombreAsignatura) {
         let cont = 0
-        // for (let alumno in this.alumnos) {
-        //     console.log()
-        //     for (let asignatura in this.alumnos[alumno].asignaturas) {
-        //         if(this.alumnos[alumno].asignaturas[asignatura] === nombreAsignatura) cont++
-        //     }
-        // }
-        for (let i = 0; i < this.alumnos.length; i++) {
-            for (let j = 0; j < this.alumnos[i].asignaturas.length; j++) {
-                if (this.alumnos[i].asignaturas[j].nombre === nombreAsignatura) {
-                    cont++
-                }
+        for (let alumno in this.alumnos) {
+            let value = this.alumnos[alumno]            
+            for (let asignatura in value.asignaturas) {
+                let valueAsig = value.asignaturas[asignatura]                
+                if(valueAsig.nombre === nombreAsignatura) cont++
             }
         }
+
+        // for (let alumno in this.alumnos) {
+        //     for (let asignatura in this.alumnos[alumno].asignaturas) {
+        //         if(value.asignaturas[asignatura].nombre === nombreAsignatura) cont++
+        //     }
+        // }
+
+        // for (let i = 0; i < this.alumnos.length; i++) {
+        //     for (let j = 0; j < this.alumnos[i].asignaturas.length; j++) {
+        //         if (this.alumnos[i].asignaturas[j].nombre === nombreAsignatura) {
+        //             cont++
+        //         }
+        //     }
+        // }
         return cont
     }
 
@@ -93,7 +101,7 @@ let estudiante1 = new Estudiante('Pepe', 'Ortiz')
 let estudiante2 = new Estudiante('Ana', 'Jiménez')
 let estudiante3 = new Estudiante('Lola', 'López')
 estudiante1.agregarAsignatura(algebra)
-estudiante1.agregarAsignatura(fisica)
+estudiante1.agregarAsignatura(algebra)
 estudiante2.agregarAsignatura(electronica)
 estudiante3.agregarAsignatura(algebra)
 estudiante3.agregarAsignatura(electronica)
@@ -103,5 +111,5 @@ let uni1 = new Universidad('UC3M')
 uni1.agregarAlumno(estudiante1)
 uni1.agregarAlumno(estudiante2)
 uni1.agregarAlumno(estudiante3)
-console.log(uni1.mostrarUniversidad())
-console.log(uni1.obtenerAlumnosAsignatura('Electrónica'))
+// console.log(uni1.mostrarUniversidad())
+console.log(uni1.obtenerAlumnosAsignatura('Álgebra'))
